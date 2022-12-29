@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cloud Watching</title>
+    </head>
+    <body>
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <section class="signupBody">
+            <form class="signupForm" action="/signup" method="POST">
+                <h1>Signup</h1>
+                <div class="signUpOptions">
+                    <input type="text" name="userName" placeholder="User Name">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                </div>
+                <div class="topicSelections">
+                    <ul>
+                        <h3>Choose Topics</h3>
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="fears">   
+                            <label for="tagSelection">Fears</label>
+                        </li> 
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="fantasy">   
+                            <label for="tagSelection">Fantasy</label>
+                        </li> 
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="reccuring">   
+                            <label for="tagSelection">Reccuring</label>
+                        </li> 
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="sci-fi">   
+                            <label for="tagSelection">Sci-Fi</label>
+                        </li> 
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="historical">   
+                            <label for="tagSelection">Historical</label>
+                        </li> 
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="healing">   
+                            <label for="tagSelection">Healing</label>
+                        </li> 
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="problemSolving">   
+                            <label for="tagSelection">Problem Solving</label>
+                        </li> 
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="supernaturals">   
+                            <label for="tagSelection">Supernatural</label>
+                        </li> 
+                        <li>
+                            <input class="tagSelection" type="checkbox" name="tags" value="current">   
+                            <label for="tagSelection">Current/Recent Events</label>
+                        </li> 
+                    </ul>
+                </div>    
+                <input class="submitButton" type="submit">
+            </form>
+        </section>
+        <script src="/js/main.js"></script>
+    </body>
+</html>

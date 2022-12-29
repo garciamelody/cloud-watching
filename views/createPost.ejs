@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <!--STYLESHEET LINK-->
+      <link rel="stylesheet" href="css/style.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+      <title>Cloud Watching</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="navigation">
+          <li><a class="btn btn-primary" href="/profile"><i class="fa-solid fa-user"></i></a></li>
+          <li><a class="btn btn-primary" href="/feed"><i class="fa-solid fa-house"></i></a></li>
+        </ul>
+        <span class="logout">
+          <a href="/logout" class="col-3 btn btn-primary">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </span>
+      </nav>
+    </header>
+    <section class="createPostSection">
+      <h2>Add a post</h2>
+      <form action="/post/createPost" method="POST">   
+        <section class="selectSection">
+          <label for="type">How was your dream?</label>
+          <select name="type">
+            <option value="goodDream">Good</option>
+            <option value="badDream">Bad</option>
+            <option value="neutralDream">Neutral</option>
+          </select>
+        </section>
+        <section>
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" name="title">
+        </section>
+        <section>
+          <label for="caption" class="form-label">Caption</label>
+          <textarea class="form-control" id="caption" name="caption"></textarea>
+        </section>
+        <section>
+          <label for="caption" class="form-label">Select 3 Tags</label>
+          <select name="tags" multiple>
+            <option value="fears">Fears</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="recurring">Reccuring</option>
+            <option value="sci-fi">Sci-Fi</option>
+            <option value="historical">Historical</option>
+            <option value="healing">Healing</option>
+            <option value="problemSolving">Problem Solving/Creative</option>
+            <option value="supernatural">Supernatural</option>
+            <option value="current">Current/Recent Events</option>
+          </select>
+        </section>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

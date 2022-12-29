@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="/css/style.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+      <title>Cloud Watching</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="navigation">
+          <li><a class="btn btn-primary" href="/feed"><i class="fa-solid fa-house"></i></a></li>
+          <li><a class="btn btn-primary" href="/profile"><i class="fa-solid fa-user"></i></a></li>
+          <li><a class="btn btn-primary" href="/createPost"><i class="fa-solid fa-plus"></i></a></li>
+          <%if(post.user == user.id){ %>
+            <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
+              <button class="btn btn-primary fa fa-trash" type="submit"></button>
+            </form>
+          <%}%>
+        </ul>
+        <span class="logout">
+          <a href="/logout" class="col-3 btn btn-primary">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </span>
+      </nav>
+    </header>
+    <section class="postSection">
+      <h1><a href="/userProfile/<%= post.user %>"><%= post.createdBy %></a></h1>
+      <section class="dreamPost">
+        <span class="dreamType"><%= post.type%></span>
+        <p><%= post.title %></p>
+      </section>
+      <img class="img-fluid" src="<%= post.image%>" />
+    </section>
+    <form class="likeButton"action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+      <button class="btn btn-primary fa fa-heart heartIcon" type="submit"></button>
+      <p>Likes: <%= post.likes %></p>
+    </form>
+    <div class="postCaption">
+      <p><%= post.caption %></p>
+    </div>
+    <section class="commentsContainer">
+      <ul class="comments">
+        <!-- add: userName and delete button -->
+        <% for(var i=0; i < comments.length; i++) {%>
+          <li class="comment">
+            <span><a href="/userProfile/<%= comments[i].createdById %>"><%= comments[i].createdBy%></a></span> <span><%= comments[i].comment%></span>
+            <% if(comments[i].createdById == user.id) {%>
+              <form action="/comment/deleteComment/<%=post.id %>/<%=comments[i]._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-outline-danger" type="submit">Delete</button>
+              </form>
+            <% } %>
+          </li>
+        <% } %>  
+      </ul>
+    </section>
+    <section class="commentSection">
+      <form class="commentForm" action="/comment/createComment/<%=post._id%>" method="POST">
+        <div>
+          <i class="fa-regular fa-comment"></i><textarea name="comment" id="comment"></textarea>
+          <button type="submit" class="commentBtn btn btn-primary" value="Upload">Submit</button>
+        </div>
+      </form>
+    </section>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="css/style.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+      <title>Cloud Watching</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="navigation">
+          <li><a class="btn btn-primary" href="/profile"><i class="fa-solid fa-user"></i></a></li>
+          <li><a class="btn btn-primary" href="/feed"><i class="fa-solid fa-house"></i></a></li>
+          <li><a class="btn btn-primary" href="/createPost"><i class="fa-solid fa-plus"></i></a></li>
+          <li><a class="btn btn-primary" href="/search"><i class="fa-solid fa-search"></i></a></li>
+        </ul>
+        <span class="logout">
+          <a href="/logout" class="col-3 btn btn-primary">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </span>
+      </nav>
+    </header>
+    <section class="profileInfo">
+      <span class="userName"><%= user.userName %></span>
+      <form class="col-1" action="/updateBio/<%= user.id %>?_method=PUT" method="POST">
+        <textarea class="bioTextArea" name="bio"><%= user.bio %></textarea>
+        <button class="submitBio" type="submit">submit</button>
+      </form>
+    </section>
+    <section class="profileFeed">
+      <ul>
+        <% for(var i=0; i < posts.length; i++) {%>
+          <li>
+                <section class="profilePost">
+                    <span class="dreamType"><%= posts[i].type%></span>
+                    <h3><%= posts[i].title%></h3>
+                    <form action="/post/deleteProfilePost/<%= posts[i].id %>?_method=DELETE" method="POST" class="deleteBtn">
+                      <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                    </form>
+                </section>
+          </li> 
+        <% } %>
+      </ul>
+    </section>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

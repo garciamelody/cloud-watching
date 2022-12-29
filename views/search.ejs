@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="css/style.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+      <title>Cloud Watching</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="navigation">
+          <li><a class="btn btn-primary" href="/feed"><i class="fa-solid fa-house"></i></a></li>
+          <li><a class="btn btn-primary" href="/createPost"><i class="fa-solid fa-plus"></i></a></li>
+        </ul>
+        <span class="logout">
+          <a href="/logout" class="col-3 btn btn-primary">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </span>
+      </nav>
+    </header>
+    <section class="searchSection">
+      <section class="searchContainer">
+        <h2>update tags</h2>
+        <form class="col-1" action="/updateTags/<%= user.id %>?_method=PUT" method="POST">
+          <section class="topicsSection"> 
+            <% let topics = ['fears','fantasy','recurring', 'sci-fi','historical', 'healing','problemSolving','supernatural', 'current'] %>
+            <% for(let i = 0; i < topics.length; i++) {%>
+              <% if(user.tags.includes(topics[i])){%>
+                <div>
+                  <input checked name="tags" type="checkbox" value="<%= topics[i] %>"><%= topics[i] %>
+                </div>
+              <%} else { %>
+                <div>
+                  <input name="tags" type="checkbox" value="<%= topics[i] %>"><%= topics[i] %>
+                </div>
+              <% } %>    
+            <% } %>  
+          </section>      
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </section>
+    </section>  
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="/css/style.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+      <title>Cloud Watching</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="navigation">
+          <li><a class="btn btn-primary" href="/feed"><i class="fa-solid fa-house"></i></a></li>
+          <li><a class="btn btn-primary" href="/createPost"><i class="fa-solid fa-plus"></i></a></li>
+        </ul>
+        <span class="logout"><a href="/logout" class="col-3 btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i></a></span>
+      </nav>
+    </header>
+    <section class="profileInfo">
+      <span class="userDisplayName"><%= user.userName %><button class="editProfileBtn"><a href="/editProfile">Edit Profile</a></button></span>
+      <span class="userBio"><%= user.bio %></span>
+      <section class="dreamCounter">
+        <section class="goodDreamsCounter">
+          <% let goodCounter = 0 %>
+          <% for(var i=0; i < posts.length; i++) {%>
+            <% if(posts[i].type == 'goodDream') {%>
+              <% goodCounter++ %>
+            <% } %>
+          <% } %>
+          <div class="dreamCounterInfo">
+            <span>Good Dreams:</span>
+            <span><%= goodCounter %></span>
+          </div>
+        </section>
+        <section class="badDreamsCounter">
+          <% let badCounter = 0 %>
+          <% for(var i=0; i < posts.length; i++) {%>
+            <% if(posts[i].type == 'badDream') {%>
+              <% badCounter++ %>
+            <% } %>
+          <% } %>
+          <div class="dreamCounterInfo">
+            <span>Bad Dreams:</span>
+            <span><%= badCounter %></span>
+          </div>
+        </section>
+        <section class="neutralDreamsCounter">
+          <% let neutralCounter = 0 %>
+          <% for(var i=0; i < posts.length; i++) {%>
+            <% if(posts[i].type == 'neutralDream') {%>
+              <% neutralCounter++ %>
+            <% } %>
+          <% } %>
+          <div class="dreamCounterInfo">
+            <span>Neutral Dreams:</span>
+            <span><%= neutralCounter %></span>
+          </div>
+        </section>
+      </section>
+    </section>
+    <section class="profileFeed">
+      <ul>
+        <% for(var i= posts.length-1; i >=0; i--) {%>
+          <li>
+            <a href="/post/<%= posts[i]._id%>">
+                <section class="profilePost">
+                    <span class="dreamType"><%= posts[i].type%></span>
+                    <p><%= posts[i].title%></p>
+                </section>
+            </a>
+          </li> 
+        <% } %>
+      </ul>
+    </section>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
