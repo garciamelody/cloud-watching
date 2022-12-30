@@ -24,10 +24,10 @@
     </header>
     <section class="searchSection">
       <section class="searchContainer">
-        <h2>update tags</h2>
+        <h2>Update Tags</h2>
         <form class="col-1" action="/updateTags/<%= user.id %>?_method=PUT" method="POST">
           <section class="topicsSection"> 
-            <% let topics = ['fears','fantasy','recurring', 'sci-fi','historical', 'healing','problemSolving','supernatural', 'current'] %>
+            <% let topics = ['Fears','Fantasy','Recurring', 'Sci-fi','Historical', 'Healing','Problem solving','Supernatural', 'Current'] %>
             <% for(let i = 0; i < topics.length; i++) {%>
               <% if(user.tags.includes(topics[i])){%>
                 <div>

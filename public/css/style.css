@@ -43,6 +43,9 @@ ul li a:hover{
     margin-top: 0;
     text-align: center;
 }
+.topicsSection div input:hover{
+    cursor: pointer;
+}
 .submitButton{
     border: none;
     padding: 7px 15px;
@@ -547,6 +550,10 @@ nav ul, .logout{
     padding: 5px;
     border-radius: 20px;
 }
+.searchContainer .btn:hover{
+    cursor: pointer;
+    background: #9F73AB;
+}
 /* edit bio page */
 .bioTextArea{
     width: 100%;
@@ -582,9 +589,6 @@ nav ul, .logout{
         width: 500px;
     }
     /* sign up form */
-    .alert-danger:last-of-type{
-        margin-bottom: -100px;
-    }
     .signupBody{
         height: 100vh;
     }
@@ -713,9 +717,6 @@ nav ul, .logout{
 /* medium-large screens */
 @media screen and (min-width:401px) and (max-width:849px){
     /* sign up form */
-    .alert-danger:last-of-type{
-        margin-bottom: -100px;
-    }
     .signupBody{
         height: 100vh;
     }
