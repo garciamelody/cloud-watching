@@ -13,18 +13,18 @@ Users can create new posts and select how their dream was, create a title, write
 ![Screen_Recording_2022-12-30_at_9_02_40_AM_AdobeExpress](https://user-images.githubusercontent.com/102616304/210084447-01fe4b2d-9265-4add-b073-d261b31a46b5.gif)
 
 # What is it made with?
-EJS, Javascript, CSS, Node.js, Express.js, MongoDB, Mongoose
+EJS, JavaScript, CSS, Node.js, Express.js, MongoDB, Mongoose
 
 # EJS
-This app uses EJS to generate HTML using Javascript, allowing the app to render posts based on users data. For example a user's feed is rendered by 
+This app uses EJS to generate HTML using JavaScript, allowing the app to render posts based on users data. For example a user's feed is rendered by 
 checking the users selected tags and rendering posts that contain those tags.
 
-# Javascript
-In this app Javascript is used to 'read' the inner text of the dream type (bad, good, neutral). It will then select a random image (using Math.random) associated with the
+# JavaScript
+In this app JavaScript is used to 'read' the inner text of the dream type (bad, good, neutral). It will then select a random image (using Math.random) associated with the
 dream type and set the background image of the post to the random image selected. This allows the user to quickly see the type of dreams on their feed.
 
 # Node.js
-Node.js is responsible for the server-side aspect. It uses Javascript to build scalable applications.
+Node.js is responsible for the server-side aspect. It uses JavaScript to build scalable applications.
 
 # Express.js
 Express.js is a framework for Node.js that comes with lots of features. It is responsible for routing and middleware throughout the app.
